@@ -1,0 +1,82 @@
+======================================================================
+STAGE 4: Multi-Agent System (In-Process)
+======================================================================
+
+[How it works]
+  1. Lead attorney agent analyses the question
+  2. Router decides which specialist agents are needed
+  3. Tax + Compliance specialists run IN PARALLEL (LangGraph Send API)
+  4. Aggregator combines all analyses into a final answer
+
+[Graph topology]
+  analyze_law -> check_routing -> [call_tax + call_compliance + call_privacy] -> aggregate -> END
+
+Question: If a company breaks a contract, avoids taxes, and leaks user data, what are the legal and regulatory consequences?
+----------------------------------------------------------------------
+
+  [Node: analyze_law] Lead attorney analysing legal aspects...
+  [Node: analyze_law] Done (1371 chars)
+
+  [Node: check_routing] Determining which specialists are needed...
+  [Node: check_routing] needs_tax=True, needs_compliance=False, needs_privacy=True
+
+  [Node: call_tax_specialist] Tax specialist agent starting...
+
+  [Node: call_privacy_specialist] Privacy specialist agent starting...
+  [Node: call_privacy_specialist] Done (1111 chars)
+  [Node: call_tax_specialist] Done (1263 chars)
+
+  [Node: aggregate] Combining all specialist analyses...
+  [Node: aggregate] Done (3162 chars)
+
+======================================================================
+FINAL ANSWER
+======================================================================
+### Legal Risk Assessment: Integrated Liability Framework
+
+The company faces a critical exposure profile characterized by the intersection of contractual, fiscal, and regulatory liabilities. The following synthesis outlines the primary risks and their cumulative impact.
+
+#### 1. Contractual Liability
+The company faces potential litigation for breach of contract. Counterparties may seek compensatory damages to satisfy expectation interests, or specific performance where applicable. If the breach involves the unauthorized disclosure of confidential information, the company risks material breach claims, potentially triggering liquidated damages clauses and exposing the firm to punitive damages.
+
+#### 2. Fiscal and Tax Exposure
+The company’s conduct risks classification as willful tax evasion under IRC § 7201, a felony carrying significant criminal penalties. Civilly, the IRS may impose a 75% fraud penalty (IRC § 6663) on underpayments. Failure to report offshore assets (FBAR/FATCA) further exacerbates these liabilities. Aggressive tax avoidance, while distinct from evasion, may still result in the disallowance of deductions and substantial underpayment penalties.
+
+#### 3. Data Privacy and Regulatory Enforcement
+The unauthorized disclosure of user data triggers severe multi-jurisdictional enforcement:
+*   **Administrative Fines:** Under GDPR, fines may reach the greater of €20 million or 4% of global annual turnover. CCPA/CPRA allows for per-violation penalties and grants users a private right of action.
+*   **Regulatory Oversight:** The FTC may pursue action under 15 U.S.C. § 45 for "unfair or deceptive acts," resulting in long-term consent decrees and mandatory, costly audits.
+*   **Compliance Obligations:** As a Data Controller, the company is mandated to report breaches within strict timeframes (e.g., 72 hours under GDPR) and faces potential class-action litigation for failing to implement reasonable security measures.
+
+#### 4. Cumulative Impact and Corporate Governance
+The convergence of these violations creates a "cascading liability" effect:
+*   **Officer Liability:** Under the doctrine of responsible corporate officer liability, executives face potential criminal indictment. Furthermore, shareholders may initiate derivative lawsuits (*Caremark* claims) alleging a breach of the duty of oversight.
+*   **Corporate Veil:** The presence of fraud or intentional misconduct provides a basis for plaintiffs to argue for "piercing the corporate veil," potentially exposing personal assets of directors and shareholders.
+*   **Reputational and Institutional Risk:** Beyond direct financial penalties, the company faces long-term loss of market trust, heightened scrutiny from the DOJ and state Attorneys General, and the potential for permanent operational restrictions.
+
+**Conclusion:** The company is currently in a position of extreme vulnerability. The combination of criminal tax exposure and systemic data negligence creates a high probability of aggressive regulatory intervention and protracted civil litigation. Immediate legal remediation and a comprehensive internal audit are required to mitigate further exposure.
+
+----------------------------------------------------------------------
+[Improvements over Stage 3]
+  + Specialisation: each agent has domain-specific expertise
+  + Parallel execution: tax + compliance agents run concurrently
+  + Better quality: specialist prompts produce deeper analysis
+  + Structured flow: explicit graph topology with routing logic
+
+[Stage 4 (Monolith) vs Stage 5 (Distributed A2A)]
+  +---------------------------+-------------------------------+
+  | Stage 4 (In-Process)      | Stage 5 (A2A Protocol)        |
+  +---------------------------+-------------------------------+
+  | Single process            | Multiple services (ports)     |
+  | Direct function calls     | HTTP-based A2A protocol       |
+  | Shared memory             | Message passing               |
+  | Simple deployment         | Independent scaling           |
+  | Tight coupling            | Loose coupling                |
+  | Easy to debug             | Service discovery + registry  |
+  | Good for small teams      | Good for large organisations  |
+  +---------------------------+-------------------------------+
+
+Stage 5 (this repo's main project) takes this same graph topology
+and deploys each agent as an independent A2A service. Run it with:
+  ./start_all.sh && python test_client.py
+======================================================================

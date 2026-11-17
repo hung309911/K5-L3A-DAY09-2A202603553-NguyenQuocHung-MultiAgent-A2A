@@ -1,0 +1,11 @@
+.venv
+.env
+**cache**
+.claude
+**SOLUTION**
+__pycache__/
+.pytest_cache/
+*.pyc
+.qa/
+*.log
+*.zip

@@ -1,0 +1,53 @@
+======================================================================
+STAGE 2: LLM + RAG / Tools
+======================================================================
+
+[How it works]
+  1. LLM receives tools (search_legal_database, calculate_damages)
+  2. LLM decides which tools to call and with what arguments
+  3. We execute the tools and feed results back to the LLM
+  4. LLM generates a final answer grounded in retrieved data
+
+Question: Nếu tôi đơn phương chấm dứt hợp đồng lao động với công ty thì sau bao lâu thì không còn được kiện công ty nữa?
+----------------------------------------------------------------------
+
+>>> Step 1: Asking LLM (with tools bound)...
+
+>>> Step 2: LLM requested 1 tool call(s):
+
+  Tool: check_statute_of_limitations
+  Args: {'case_type': 'contract'}
+  Result: 4 năm (UCC § 2-725)
+
+>>> Step 3: LLM generating final answer with tool results...
+
+Chào bạn, với tư cách là chuyên gia pháp lý, tôi xin giải đáp thắc mắc của bạn về thời hiệu khởi kiện liên quan đến tranh chấp lao động như sau:
+
+Tại Việt Nam, thời hiệu khởi kiện tranh chấp lao động được quy định cụ thể tại **Bộ luật Lao động 2019**. Bạn cần lưu ý rằng thời hiệu này không áp dụng theo quy định chung của hợp đồng dân sự (như quy định 4 năm mà hệ thống vừa truy xuất), mà tuân theo các mốc thời gian đặc thù sau:
+
+1.  **Thời hiệu yêu cầu giải quyết tranh chấp lao động cá nhân:**
+    *   **01 năm** kể từ ngày phát hiện ra hành vi mà bên tranh chấp cho rằng quyền và lợi ích hợp pháp của mình bị vi phạm.
+    *   Đối với các tranh chấp về kỷ luật lao động theo hình thức sa thải hoặc tranh chấp về bồi thường thiệt hại, trợ cấp khi chấm dứt hợp đồng lao động, thời hiệu là **06 tháng** kể từ ngày phát hiện hành vi vi phạm.
+
+2.  **Lưu ý quan trọng:**
+    *   Nếu bạn đơn phương chấm dứt hợp đồng lao động, các tranh chấp thường phát sinh liên quan đến tiền lương, trợ cấp thôi việc, hoặc bồi thường do vi phạm thời hạn báo trước.
+    *   Bạn cần xác định rõ "ngày phát hiện hành vi vi phạm" là ngày nào (thường là ngày công ty từ chối thanh toán các khoản tiền hoặc ngày bạn nhận được quyết định kỷ luật/chấm dứt hợp đồng trái pháp luật).
+    *   Nếu quá thời hạn nêu trên mà bạn không nộp đơn yêu cầu giải quyết tranh chấp tại cơ quan có thẩm quyền (Hòa giải viên lao động hoặc Tòa án), bạn sẽ mất quyền khởi kiện.
+
+**Lời khuyên:** Bạn nên kiểm tra lại ngày phát sinh tranh chấp thực tế và chuẩn bị hồ sơ sớm nhất có thể. Nếu cần xác định chính xác thời điểm bắt đầu tính thời hiệu cho trường hợp cụ thể của mình, bạn nên cung cấp thêm thông tin về lý do tranh chấp (ví dụ: công ty không trả lương, không chốt sổ BHXH, hay tranh chấp về bồi thường đào tạo).
+
+*Lưu ý: Thông tin này mang tính chất tham khảo dựa trên quy định pháp luật hiện hành. Để có tư vấn chính xác nhất cho hồ sơ của bạn, hãy liên hệ trực tiếp với luật sư hoặc văn phòng tư vấn pháp luật.*
+
+----------------------------------------------------------------------
+[Improvements over Stage 1]
+  + Grounded: answers cite specific statutes (DTSA, UCC, etc.)
+  + Tool use: can search databases and calculate damages
+  + More accurate: retrieval reduces hallucination risk
+
+[Limitations of Stage 2]
+  - Manual orchestration: we wrote the tool-call loop ourselves
+  - Single pass: only one round of tool calls
+  - No reasoning loop: LLM can't decide to search again if needed
+
+Next: Stage 3 wraps this in an autonomous ReAct agent loop.
+======================================================================

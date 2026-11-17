@@ -1,0 +1,25 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	law_agent(law_agent)
+	tax_agent(tax_agent)
+	compliance_agent(compliance_agent)
+	privacy_agent(privacy_agent)
+	aggregate_results(aggregate_results)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> law_agent;
+	compliance_agent --> aggregate_results;
+	law_agent -.-> aggregate_results;
+	law_agent -.-> compliance_agent;
+	law_agent -.-> privacy_agent;
+	law_agent -.-> tax_agent;
+	privacy_agent --> aggregate_results;
+	tax_agent --> aggregate_results;
+	aggregate_results --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

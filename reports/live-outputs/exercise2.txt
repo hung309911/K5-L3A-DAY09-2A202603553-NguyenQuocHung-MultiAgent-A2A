@@ -1,0 +1,23 @@
+Câu hỏi: Thời hiệu khởi kiện vụ vi phạm hợp đồng là bao lâu?
+
+🔧 Gọi tool: check_statute_of_limitations
+   Kết quả: 4 năm (UCC § 2-725)
+
+✅ Kết quả:
+Theo quy định của Bộ luật Dân sự 2015 tại Việt Nam, thời hiệu khởi kiện để yêu cầu Tòa án giải quyết tranh chấp hợp đồng được quy định như sau:
+
+**Thời hiệu khởi kiện là 03 năm**, kể từ ngày người có quyền yêu cầu biết hoặc phải biết quyền và lợi ích hợp pháp của mình bị xâm phạm (Điều 429 Bộ luật Dân sự 2015).
+
+**Một số lưu ý quan trọng:**
+
+1.  **Cách tính thời hiệu:** Thời hiệu bắt đầu được tính từ thời điểm bạn phát hiện ra hành vi vi phạm hợp đồng của bên kia.
+2.  **Hết thời hiệu:** Nếu quá thời hạn 03 năm mà bạn không thực hiện quyền khởi kiện, bạn sẽ mất quyền yêu cầu Tòa án giải quyết tranh chấp thông qua thủ tục tố tụng (trừ một số trường hợp đặc biệt được pháp luật quy định về việc gián đoạn hoặc bắt đầu lại thời hiệu).
+3.  **Lưu ý về các loại hợp đồng đặc thù:**
+    *   Đối với các hợp đồng thương mại (theo Luật Thương mại), thời hiệu khởi kiện cũng là **02 năm** kể từ thời điểm quyền và lợi ích hợp pháp bị xâm phạm (Điều 319 Luật Thương mại 2005).
+    *   Do đó, tùy thuộc vào tính chất của hợp đồng (dân sự hay thương mại), thời hiệu có thể khác nhau.
+
+**Lời khuyên:**
+*   Bạn nên kiểm tra kỹ loại hợp đồng của mình là hợp đồng dân sự hay hợp đồng thương mại để xác định chính xác thời hiệu (02 năm hay 03 năm).
+*   Nếu bạn đang có tranh chấp, hãy thu thập chứng cứ và thực hiện các thủ tục pháp lý càng sớm càng tốt để đảm bảo quyền lợi của mình không bị ảnh hưởng bởi thời hiệu.
+
+*Lưu ý: Thông tin này mang tính chất tham khảo dựa trên quy định pháp luật chung. Để có tư vấn chính xác nhất cho trường hợp cụ thể của bạn, bạn nên liên hệ với luật sư hoặc chuyên gia pháp lý.*

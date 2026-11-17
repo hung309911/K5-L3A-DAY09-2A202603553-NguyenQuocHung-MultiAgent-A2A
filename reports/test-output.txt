@@ -1,0 +1,17 @@
+.............................................................            [100%]
+============================== warnings summary ===============================
+.venv\Lib\site-packages\anyio\pytest_plugin.py:14
+  C:\Users\new\Downloads\buong-template\day9-multi-agent\.venv\Lib\site-packages\anyio\pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+tests/test_http_integration.py::test_full_a2a_chain_preserves_trace_context_and_depth
+tests/test_http_integration.py::test_tax_shutdown_partial_result_and_dynamic_rediscovery
+tests/test_http_integration.py::test_tax_shutdown_partial_result_and_dynamic_rediscovery
+  C:\Users\new\Downloads\buong-template\day9-multi-agent\common\a2a_client.py:60: DeprecationWarning: A2AClient is deprecated and will be removed in a future version. Use ClientFactory to create a client with a JSON-RPC transport.
+    client = A2AClient(httpx_client=http_client, agent_card=agent_card)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+61 passed, 4 warnings in 15.42s

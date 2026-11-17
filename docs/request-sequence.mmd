@@ -1,0 +1,26 @@
+sequenceDiagram
+    participant U as Client
+    participant C as Customer
+    participant R as Registry
+    participant L as Law
+    participant T as Tax
+    participant P as Compliance
+    Note over R,P: Agents đăng ký capability và endpoint khi startup
+    U->>C: A2A Message (trace, context, depth=0)
+    C->>R: discover(legal_question)
+    R-->>C: Law endpoint
+    C->>L: A2A Message (cùng trace/context, depth=1)
+    L->>L: analyze_law + check_routing
+    par Tax được chọn
+        L->>R: discover(tax_question)
+        R-->>L: Tax endpoint
+        L->>T: A2A Message (depth=2)
+        T-->>L: Task/Artifact
+    and Compliance được chọn
+        L->>R: discover(compliance_question)
+        R-->>L: Compliance endpoint
+        L->>P: A2A Message (depth=2)
+        P-->>L: Task/Artifact
+    end
+    L-->>C: Task/Artifact tổng hợp
+    C-->>U: Task/Artifact phản hồi

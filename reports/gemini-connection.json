@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-11-17T17:01:55.968223+07:00",
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "real_provider_request": true,
+  "live_llm_verified": true,
+  "http_status": 200,
+  "answer": "DAY9_GEMINI_OK",
+  "usage": {
+    "completion_tokens": 7,
+    "prompt_tokens": 14,
+    "total_tokens": 21
+  }
+}

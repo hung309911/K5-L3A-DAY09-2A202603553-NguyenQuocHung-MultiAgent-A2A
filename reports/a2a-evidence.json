@@ -1,0 +1,31 @@
+{
+  "model": "deterministic test fixture; no provider calls",
+  "checks": [
+    {
+      "check": "registry_and_cards",
+      "passed": true,
+      "service_count": 5
+    },
+    {
+      "check": "full_a2a_chain",
+      "passed": true,
+      "trace_id": "day9-trace-1f30adf8-5b06-4387-84b9-d0abb73be14a",
+      "context_id": "4acc8ec3-7bf1-4a5d-badf-f18211732b67",
+      "trace_lines": {
+        "customer_agent": "2026-11-17 17:06:53,418 [customer_agent] INFO CustomerAgent executing | task=f87a315e-28a7-4cbc-9c59-45ee79e22061 context=4acc8ec3-7bf1-4a5d-badf-f18211732b67 trace=day9-trace-1f30adf8-5b06-4387-84b9-d0abb73be14a depth=0",
+        "law_agent": "2026-11-17 17:06:53,482 [law_agent] INFO LawAgent executing | task=532dc16f-ceeb-4fb6-a297-464a2a671359 context=4acc8ec3-7bf1-4a5d-badf-f18211732b67 trace=day9-trace-1f30adf8-5b06-4387-84b9-d0abb73be14a depth=1",
+        "tax_agent": "2026-11-17 17:06:53,554 [tax_agent] INFO TaxAgent executing | task=68dca1c2-89dc-4cb6-8a9c-ad51f667d94e context=4acc8ec3-7bf1-4a5d-badf-f18211732b67 trace=day9-trace-1f30adf8-5b06-4387-84b9-d0abb73be14a depth=2",
+        "compliance_agent": "2026-11-17 17:06:53,555 [compliance_agent] INFO ComplianceAgent executing | task=ac8c04aa-56e1-4fcc-afbe-0f6fe2566c99 context=4acc8ec3-7bf1-4a5d-badf-f18211732b67 trace=day9-trace-1f30adf8-5b06-4387-84b9-d0abb73be14a depth=2"
+      },
+      "answer": "[FIXTURE:TOOL_RESULT]\n[FIXTURE:AGGREGATE]\n## Legal Analysis\n[FIXTURE:LAW] Canned general-law response.\n\n---\n\n## Tax Analysis\n[FIXTURE:TAX] Canned tax response, not legal advice.\n\n---\n\n## Regulatory Compliance Analysis\n[FIXTURE:COMPLIANCE] Canned compliance response."
+    },
+    {
+      "check": "tax_shutdown_and_dynamic_rediscovery",
+      "passed": true,
+      "old_endpoint": "http://127.0.0.1:58056",
+      "new_endpoint": "http://127.0.0.1:58126",
+      "partial_answer": "[FIXTURE:TOOL_RESULT]\n[FIXTURE:AGGREGATE]\n## Legal Analysis\n[FIXTURE:LAW] Canned general-law response.\n\n---\n\n## Tax Analysis\n[Tax analysis unavailable: All connection attempts failed]\n\n---\n\n## Regulatory Compliance Analysis\n[FIXTURE:COMPLIANCE] Canned compliance response.",
+      "recovered_answer": "[FIXTURE:TOOL_RESULT]\n[FIXTURE:AGGREGATE]\n## Legal Analysis\n[FIXTURE:LAW] Canned general-law response.\n\n---\n\n## Tax Analysis\n[FIXTURE:TAX] Canned tax response, not legal advice.\n\n---\n\n## Regulatory Compliance Analysis\n[FIXTURE:COMPLIANCE] Canned compliance response."
+    }
+  ]
+}

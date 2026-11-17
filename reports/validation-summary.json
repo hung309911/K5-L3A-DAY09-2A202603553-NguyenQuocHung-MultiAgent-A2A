@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-11-17T17:13:09.528064+07:00",
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "live_llm_verified": true,
+  "real_codelab_entry_points_passed": 6,
+  "real_a2a_scenarios_passed": 4,
+  "offline_regression_tests_passed": 61,
+  "tax_prompt_before_words": 690,
+  "tax_prompt_after_words": 145,
+  "tax_prompt_after_bullets": 4,
+  "original_provider_changed_at_user_request": "OpenRouter -> direct Gemini",
+  "official_grading_suite": false
+}

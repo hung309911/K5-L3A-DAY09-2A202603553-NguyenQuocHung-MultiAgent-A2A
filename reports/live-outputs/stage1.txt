@@ -1,0 +1,45 @@
+======================================================================
+STAGE 1: Direct LLM Calling
+======================================================================
+
+[How it works]
+  1. We send a system prompt + user question directly to the LLM
+  2. The LLM responds from its training data only
+  3. No tools, no retrieval, no external knowledge
+
+Question: một công ty trốn thuế sẽ bị xử phạt thế nào?
+----------------------------------------------------------------------
+
+>>> Calling LLM directly (no tools, no RAG)...
+
+Tại Việt Nam, hành vi trốn thuế bị xử lý theo **Luật Quản lý thuế 2019** và **Nghị định 125/2020/NĐ-CP**. Mức xử phạt phụ thuộc vào tính chất và mức độ vi phạm:
+
+### 1. Xử phạt hành chính
+*   **Mức phạt tiền:**
+    *   Phạt **1 lần** số thuế trốn đối với hành vi vi phạm có tình tiết giảm nhẹ.
+    *   Phạt **1,5 lần** số thuế trốn đối với hành vi vi phạm không có tình tiết tăng nặng, giảm nhẹ.
+    *   Phạt **2 lần** số thuế trốn đối với hành vi vi phạm có tình tiết tăng nặng.
+    *   Phạt **2,5 lần** số thuế trốn đối với hành vi vi phạm có từ 02 tình tiết tăng nặng trở lên.
+    *   Phạt **3 lần** số thuế trốn đối với hành vi vi phạm có từ 03 tình tiết tăng nặng trở lên.
+*   **Biện pháp khắc phục hậu quả:** Buộc nộp đủ số tiền thuế trốn vào ngân sách nhà nước và tiền chậm nộp tiền thuế.
+
+### 2. Xử lý hình sự
+Nếu hành vi trốn thuế có tính chất nghiêm trọng, cá nhân hoặc pháp nhân thương mại có thể bị truy cứu trách nhiệm hình sự theo **Điều 200 Bộ luật Hình sự 2015 (sửa đổi 2017)**:
+*   **Đối với cá nhân:** Có thể bị phạt tiền từ 100 triệu đến 4,5 tỷ đồng hoặc phạt tù từ 03 tháng đến 07 năm.
+*   **Đối với pháp nhân thương mại:** Có thể bị phạt tiền từ 300 triệu đến 10 tỷ đồng, bị đình chỉ hoạt động có thời hạn hoặc vĩnh viễn.
+
+**Lưu ý:**
+*   Hành vi trốn thuế từ 100 triệu đồng trở lên (hoặc dưới 100 triệu nhưng đã bị xử phạt hành chính mà còn vi phạm) mới đủ yếu tố cấu thành tội phạm hình sự.
+*   Nếu người nộp thuế tự giác khắc phục hậu quả (nộp đủ số thuế và tiền phạt) trước thời điểm cơ quan có thẩm quyền ban hành kết luận kiểm tra/thanh tra, có thể được miễn truy cứu trách nhiệm hình sự.
+
+*Khuyến cáo: Đây là thông tin tư vấn pháp luật tổng quát. Bạn nên tham khảo ý kiến luật sư hoặc cơ quan thuế để được hướng dẫn cụ thể cho trường hợp của mình.*
+
+----------------------------------------------------------------------
+[Limitations of Stage 1]
+  - Stateless: no conversation memory between calls
+  - No tools: cannot search databases or calculate damages
+  - Knowledge cutoff: only knows what was in training data
+  - No grounding: cannot cite specific statutes or current case law
+
+Next: Stage 2 adds RAG and tools to ground responses in real data.
+======================================================================

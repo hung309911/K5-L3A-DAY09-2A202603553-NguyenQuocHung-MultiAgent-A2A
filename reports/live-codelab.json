@@ -1,0 +1,63 @@
+{
+  "checked_at": "2026-11-17T17:07:45.653173+07:00",
+  "provider": "gemini",
+  "model": "gemini-3.1-flash-lite",
+  "uses_test_fixtures": false,
+  "entry_points": [
+    {
+      "name": "stage1",
+      "entry_point": "stages/stage_1_direct_llm/main.py",
+      "exit_code": 0,
+      "passed": true,
+      "required_output_marker": null,
+      "elapsed_seconds": 5.103,
+      "output_file": "reports/live-outputs/stage1.txt"
+    },
+    {
+      "name": "stage2",
+      "entry_point": "stages/stage_2_rag_tools/main.py",
+      "exit_code": 0,
+      "passed": true,
+      "required_output_marker": "Tool:",
+      "elapsed_seconds": 6.596,
+      "output_file": "reports/live-outputs/stage2.txt"
+    },
+    {
+      "name": "exercise2",
+      "entry_point": "exercises/exercise_2_tools.py",
+      "exit_code": 0,
+      "passed": true,
+      "required_output_marker": "check_statute_of_limitations",
+      "elapsed_seconds": 10.351,
+      "output_file": "reports/live-outputs/exercise2.txt"
+    },
+    {
+      "name": "stage3",
+      "entry_point": "stages/stage_3_single_agent/main.py",
+      "exit_code": 0,
+      "passed": true,
+      "required_output_marker": "Tool: search_case_law",
+      "elapsed_seconds": 7.417,
+      "output_file": "reports/live-outputs/stage3.txt"
+    },
+    {
+      "name": "stage4",
+      "entry_point": "stages/stage_4_multi_agent/main.py",
+      "exit_code": 0,
+      "passed": true,
+      "required_output_marker": "[Node: call_privacy_specialist] Done",
+      "elapsed_seconds": 34.689,
+      "output_file": "reports/live-outputs/stage4.txt"
+    },
+    {
+      "name": "exercise4",
+      "entry_point": "exercises/exercise_4_multiagent.py",
+      "exit_code": 0,
+      "passed": true,
+      "required_output_marker": "KẾT QUẢ CUỐI CÙNG",
+      "elapsed_seconds": 29.444,
+      "output_file": "reports/live-outputs/exercise4.txt"
+    }
+  ],
+  "all_passed": true
+}
