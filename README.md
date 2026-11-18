@@ -4,7 +4,7 @@
 
 **Học viên:** Nguyễn Quốc Hưng — **MSSV:** 2A202603553 — **GitHub:** [hung309911](https://github.com/hung309911).
 
-Repo bài làm: [K5-L3A-DAY09-2A202603553-NguyenQuocHung-MultiAgent-A2A](https://github.com/hung309911/K5-L3A-DAY09-2A202603553-NguyenQuocHung-MultiAgent-A2A).
+Repo bài làm: [K5-L3A-DAY09-NguyenQuocHung-2A202603553-MultiAgent-A2A](https://github.com/hung309911/K5-L3A-DAY09-NguyenQuocHung-2A202603553-MultiAgent-A2A).
 
 Đã triển khai bài chính 1.1–5.3 và xác minh với **Gemini thật** ngày 17/11/2026: 6 demo đạt, 4 kiểm tra A2A đạt; 61 test hồi quy offline cũng đạt. Đọc [HUONG-DAN.md](HUONG-DAN.md) để chạy, [BAO-CAO.md](BAO-CAO.md) để xem đáp án, [SOURCE.md](SOURCE.md) để đối chiếu nguồn và phạm vi. Bộ test do bài làm bổ sung, không phải bộ chấm chính thức. Bằng chứng chạy thật: [LIVE-RESULTS.md](reports/LIVE-RESULTS.md).
 
